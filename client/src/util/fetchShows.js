@@ -3,7 +3,7 @@ const fetchShows = async () => {
     method: "GET",
     headers: {
       accept: "application/json",
-      Authorization: process.env.TMDB_AUTH_TOKEN,
+      Authorization: process.env.REACT_APP_TMDB_AUTH_TOKEN,
     },
   };
 
