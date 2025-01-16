@@ -1,0 +1,174 @@
+header {
+  top: 0;
+  z-index: 998;
+  transition: background-color 0.3s ease-in-out 0.5s;
+}
+
+header.scrolled {
+  background-color: rgba(27, 27, 27, 0.9);
+  backdrop-filter: blur(5px);
+  transition: background-color 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+header > .nav__container {
+  padding: 1rem;
+  padding-top: 4rem;
+  transition: padding-top 0.3s ease-in-out 0.5s;
+}
+
+header.scrolled > .nav__container {
+  padding-top: 1rem;
+  transition: padding-top 0.3s ease-in-out;
+}
+
+/* Logo Styles  */
+header > .nav__container > .logo__container {
+  width: fit-content;
+}
+
+header > .nav__container > .logo__container .logo {
+  max-width: 12rem;
+  height: auto;
+}
+
+/* Nav Styles  */
+header > .nav__container > nav {
+  padding-right: 0rem;
+}
+
+header > .nav__container > nav > .nav__list {
+  gap: 2rem;
+}
+
+header > .nav__container > nav > .nav__list > .nav__item {
+  color: var(--text-color-1);
+  width: 120px;
+  height: 40px;
+  font-weight: 600;
+  gap: 0.2rem;
+  cursor: default;
+}
+
+header > .nav__container > nav > .nav__list > .nav__item > svg {
+  width: 20px;
+  height: 20px;
+}
+
+.dropdown__menu {
+  top: 70%;
+  left: 0;
+  background-color: var(--background-color-3);
+  padding: 1rem;
+  border-radius: 5px;
+  gap: 1rem;
+  min-width: 150px;
+  opacity: 0;
+  transition: top ease-in-out 0.3s, opacity ease-in-out 0.3s;
+  pointer-events: none;
+}
+
+.dropdown__menu > a {
+  transition: color ease-in-out 0.1s;
+}
+
+header > .nav__container > nav > .nav__list > .nav__item:hover .dropdown__menu {
+  top: 100%;
+  opacity: 1;
+  pointer-events: all;
+}
+
+header
+  > .nav__container
+  > nav
+  > .nav__list
+  > .nav__item:hover
+  .dropdown__menu
+  > a:hover {
+  color: var(--text-color-red);
+}
+
+header > .nav__container > nav.mobile > svg {
+  width: 30px;
+  height: auto;
+}
+
+header > .nav__container > nav.mobile > svg * {
+  color: var(--text-color-1);
+}
+
+header > .nav__container > nav.mobile > .overlay {
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+header > .nav__container > nav.mobile > .overlay.open {
+  pointer-events: all;
+  opacity: 1;
+}
+
+header > .nav__container > nav.mobile > .nav__list {
+  z-index: 1000;
+  top: 0;
+  right: -100%;
+  transition: right 0.3s ease-in-out;
+  background-color: var(--background-color-2);
+  height: 100dvh;
+  min-width: 20rem;
+  box-shadow: -4px 0px 6px rgba(0, 0, 0, 0.2);
+  padding: 2rem 0rem;
+  gap: 0rem;
+}
+
+header > .nav__container > nav.mobile > .nav__list.open {
+  right: 0;
+}
+
+header > .nav__container > nav.mobile .nav__close {
+  padding: 0rem 1rem;
+}
+
+header > .nav__container > nav.mobile .nav__close svg {
+  width: 30px;
+  height: auto;
+}
+
+header > .nav__container > nav.mobile .nav__close svg * {
+  color: var(--text-color-1);
+}
+
+header > .nav__container > nav.mobile > .nav__list .nav__item {
+  height: fit-content;
+  min-height: 4rem;
+}
+
+header > .nav__container > nav.mobile > .nav__list .accordion__menu {
+  background-color: var(--background-color-1);
+  box-shadow: inset 0px 10px 15px rgba(0, 0, 0, 0.3);
+  color: var(--text-color-1);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+header > .nav__container > nav.mobile > .nav__list .accordion__menu.active {
+  max-height: 1000px;
+}
+
+header > .nav__container > nav.mobile > .nav__list .accordion__menu > div {
+  padding: 2rem;
+  gap: 1rem;
+}
+
+@media only screen and (max-width: 424px) {
+  header > .nav__container > nav.mobile > .nav__list {
+    width: 100dvw;
+  }
+}
