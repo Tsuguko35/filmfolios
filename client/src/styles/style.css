@@ -1,0 +1,167 @@
+/* Fonts  */
+@import url("https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&family=Forum&display=swap");
+
+/* Global styles  */
+:root {
+  --background-color-1: #161616;
+  --background-color-2: #1b1b1b;
+  --background-color-3: #4a4a4a;
+  --text-color-1: #ffffff;
+  --text-color-2: #cccccc;
+  --text-color-3: #6b6b6c;
+  --text-color-4: #919191;
+  --text-color-red: #d84040;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  font-family: "Chivo", sans-serif;
+  scrollbar-width: none;
+  scrollbar-color: var(--text-color-red) var(--background-color-2);
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+  caret-color: var(--text-color-red);
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+}
+
+body {
+  background-color: var(--background-color-1);
+  min-height: 1000dvh;
+  font-family: sans-serif;
+}
+
+::selection {
+  color: var(--text-color-1); /* Text color */
+  background-color: var(--text-color-red); /* Background color */
+}
+
+::-moz-selection {
+  color: var(--text-color-1); /* Text color for Firefox */
+  background-color: var(--text-color-red); /* Background color for Firefox */
+}
+
+.flex {
+  display: flex;
+}
+
+.flex__1 {
+  flex: 1;
+}
+
+.align__center {
+  align-items: center;
+}
+
+.align__end {
+  align-items: flex-end;
+}
+
+.justify__center {
+  justify-content: center;
+}
+
+.justify__end {
+  justify-content: flex-end;
+}
+
+.space__between {
+  justify-content: space-between;
+}
+
+.flex__column {
+  flex-direction: column;
+}
+
+.p__absolute {
+  position: absolute;
+}
+
+.p__fixed {
+  position: fixed;
+}
+
+.p__relative {
+  position: relative;
+}
+
+.max__w {
+  width: 100%;
+}
+
+.max__h {
+  height: 100%;
+}
+
+.container {
+  max-width: 1560px;
+  margin: 0 auto;
+  padding: 7rem 1rem;
+}
+
+.container__padding {
+  padding: 5rem 1rem;
+}
+
+/* loading skeleton  */
+.loading__skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.slide__down {
+  animation: slide-down 0.5s ease-in-out;
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-3rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0rem);
+    opacity: 1;
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: var(--background-color-2);
+  }
+  100% {
+    background-color: var(--background-color-1);
+  }
+}
