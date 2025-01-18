@@ -120,11 +120,12 @@ header > .nav__container > nav.mobile > .nav__list {
   right: -100%;
   transition: right 0.3s ease-in-out;
   background-color: var(--background-color-2);
-  height: 100dvh;
+  min-height: 100dvh;
   min-width: 20rem;
   box-shadow: -4px 0px 6px rgba(0, 0, 0, 0.2);
   padding: 2rem 0rem;
   gap: 0rem;
+  overflow-y: auto;
 }
 
 header > .nav__container > nav.mobile > .nav__list.open {
@@ -159,7 +160,7 @@ header > .nav__container > nav.mobile > .nav__list .accordion__menu {
 }
 
 header > .nav__container > nav.mobile > .nav__list .accordion__menu.active {
-  max-height: 1000px;
+  max-height: 14rem;
 }
 
 header > .nav__container > nav.mobile > .nav__list .accordion__menu > div {

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  allShowsArray: [],
+  allShowsArray: null,
 };
 
 const allShowsSlice = createSlice({
@@ -9,7 +9,9 @@ const allShowsSlice = createSlice({
   initialState: initialState,
   reducers: {
     addShows: (state, action) => {
-      state.allShowsArray.push(...action.payload);
+      console.log(action.payload);
+
+      state.allShowsArray = action.payload;
     },
   },
 });

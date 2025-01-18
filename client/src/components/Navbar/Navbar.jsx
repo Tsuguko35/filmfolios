@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [navOpen, setNavOpen] = useState(false);
-  const [accordionOpen, setAccordionOpen] = useState("");
+  const [accordionOpen, setAccordionOpen] = useState([]);
   const deviceType = useSelector((state) => state.deviceType.device);
 
   useEffect(() => {
@@ -37,6 +37,14 @@ function Navbar() {
       document.body.style.overflow = "auto";
     }
   }, [navOpen]);
+
+  const manageAccordion = (menu) => {
+    setAccordionOpen((prev) =>
+      prev.includes(menu)
+        ? prev.filter((item) => item !== menu)
+        : [...prev, menu]
+    );
+  };
 
   return (
     <header className={`p__fixed max__w ${isScrolled ? "scrolled" : ""}`}>
@@ -93,16 +101,12 @@ function Navbar() {
                   {/* Movie Accordion  */}
                   <li
                     className={`nav__item flex align__center p__relative `}
-                    onClick={() =>
-                      setAccordionOpen(
-                        accordionOpen !== "movies" ? "movies" : ""
-                      )
-                    }>
+                    onClick={() => manageAccordion("movies")}>
                     Movies <MdOutlineKeyboardArrowDown />
                   </li>
                   <div
                     className={`accordion__menu max__w ${
-                      accordionOpen === "movies" ? "active" : ""
+                      accordionOpen.includes("movies") ? "active" : ""
                     }`}>
                     <div className="max__w flex flex__column">
                       <Link to={""}>Popular</Link>
@@ -115,16 +119,12 @@ function Navbar() {
                   {/* TV Show Accordion  */}
                   <li
                     className="nav__item flex align__center p__relative"
-                    onClick={() =>
-                      setAccordionOpen(
-                        accordionOpen !== "tvshows" ? "tvshows" : ""
-                      )
-                    }>
+                    onClick={() => manageAccordion("tvshows")}>
                     TV Shows <MdOutlineKeyboardArrowDown />
                   </li>
                   <div
                     className={`accordion__menu max__w ${
-                      accordionOpen === "tvshows" ? "active" : ""
+                      accordionOpen.includes("tvshows") ? "active" : ""
                     }`}>
                     <div className="max__w flex flex__column">
                       <Link to={""}>Popular</Link>
